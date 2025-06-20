@@ -26,7 +26,6 @@ if video_url and st.button("Analyze Comments"):
                     "Sentiment": sentiment,
                     "Key Phrases": ", ".join(key_phrases)
                 })
-                st.write(f"Lang: {lang} | Translated: {translated}")
 
             # Display in a Streamlit table
             st.dataframe(data)
