@@ -1,1 +1,5 @@
 streamlit
+google-api-python-client
+azure-ai-textanalytics
+python-dotenv
+requests
