@@ -23,18 +23,18 @@ def detect_language(comment):
 
 
 def translate_to_english(text, from_lang):
-    if from_lang == "en":
+    if from_lang == "en" | from_lang == "(Unknown)":
         return text
     headers = {
         "Ocp-Apim-Subscription-Key": TRANSLATOR_KEY,
-        "Ocp-Apim-Subscription-Region": "global",
+        "Ocp-Apim-Subscription-Region": "eastus",
         "Content-type": "application/json"
     }
     params = {"api-version": "3.0", "from": from_lang, "to": "en"}
     body = [{"text": text}]
     try:
         response = requests.post(
-            TRANSLATOR_ENDPOINT + "/translate",
+            TRANSLATOR_ENDPOINT + "translate",
             params=params,
             headers=headers,
             json=body

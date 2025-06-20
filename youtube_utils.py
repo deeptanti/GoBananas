@@ -7,7 +7,7 @@ def extract_video_id(url):
     match = re.search(pattern, url)
     return match.group(1) if match else None
 
-def fetch_comments(video_url, max_comments=50):
+def fetch_comments(video_url, max_comments=20):
     api_key = st.secrets["YOUTUBE_API_KEY"]
     video_id = extract_video_id(video_url)
     if not video_id:
@@ -21,7 +21,7 @@ def fetch_comments(video_url, max_comments=50):
         request = youtube.commentThreads().list(
             part="snippet",
             videoId=video_id,
-            maxResults=50,
+            maxResults=20,
             pageToken=next_page_token
         )
         response = request.execute()

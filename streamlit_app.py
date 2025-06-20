@@ -7,7 +7,7 @@ st.title("📺 YouTube Comment Analyzer (Multilingual)")
 video_url = st.text_input("Enter a YouTube video URL")
 
 if video_url and st.button("Analyze Comments"):
-    with st.spinner("Fetching comments..."):
+    with st.spinner("Analyzing comments..."):
         comments = fetch_comments(video_url)
         if comments:
             st.success(f"Fetched {len(comments)} comments.")
@@ -26,6 +26,7 @@ if video_url and st.button("Analyze Comments"):
                     "Sentiment": sentiment,
                     "Key Phrases": ", ".join(key_phrases)
                 })
+                st.write(f"Lang: {lang} | Translated: {translated}")
 
             # Display in a Streamlit table
             st.dataframe(data)
