@@ -23,7 +23,7 @@ def detect_language(comment):
 
 
 def translate_to_english(text, from_lang):
-    if from_lang == "en" | from_lang == "(Unknown)":
+    if from_lang == "en" or from_lang == "(Unknown)":
         return text
     headers = {
         "Ocp-Apim-Subscription-Key": TRANSLATOR_KEY,
